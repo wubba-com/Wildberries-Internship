@@ -1,0 +1,8 @@
+$positionClassMap = array(
+	'left' => 'product-item-label-left',
+	'center' => 'product-item-label-center',
+	'right' => 'product-item-label-right',
+	'bottom' => 'product-item-label-bottom',
+	'middle' => 'product-item-label-middle',
+	'top' => 'product-item-label-top'
+);

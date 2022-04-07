@@ -1,0 +1,28 @@
+templateLibrary = array('popup', 'ajax', 'fx');
+$currencyList = '';
+
+if (!empty($arResult['CURRENCIES']))
+{
+	$templateLibrary[] = 'currency';
+	$currencyList = CUtil::PhpToJSObject($arResult['CURRENCIES'], false, true, true);
+}
+
+$templateData = array(
+	'TEMPLATE_THEME' => $arParams['TEMPLATE_THEME'],
+	'TEMPLATE_LIBRARY' => $templateLibrary,
+	'CURRENCIES' => $currencyList
+);
+unset($currencyList, $templateLibrary);
+
+$elementEdit = CIBlock::GetArrayByID($arParams['IBLOCK_ID'], 'ELEMENT_EDIT');
+$elementDelete = CIBlock::GetArrayByID($arParams['IBLOCK_ID'], 'ELEMENT_DELETE');
+$elementDeleteParams = array('CONFIRM' => GetMessage('CT_BCS_TPL_ELEMENT_DELETE_CONFIRM'));
+
+$positionClassMap = array(
+	'left' => 'product-item-label-left',
+	'center' => 'product-item-label-center',
+	'right' => 'product-item-label-right',
+	'bottom' => 'product-item-label-bottom',
+	'middle' => 'product-item-label-middle',
+	'top' => 'product-item-label-top'
+);
